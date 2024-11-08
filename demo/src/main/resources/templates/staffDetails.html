@@ -18,9 +18,18 @@
             <!-- variable expression (Thymeleaf attribute ) th:text="${staff.staffName}" -->
             <td th:text="*{staffName}" style="text-align: center;border: 1px dotted black;"></td>
             <td th:text="*{staffJobTitle}" style="text-align: center;border: 1px dotted black;"></td>
-            <td th:text="*{staffSalary}" style="text-align: center;order: 1px dotted black;"></td>
+            <td  style="text-align: center;border: 1px dotted black;">
+                <!-- conditions if and else (unless) -->
+                <p th:text="*{staffSalary >= 20000 ? 'its too much' : 'its not too much'}"></p>
+                <!-- <p th:if="${staffSalary >= 20000}"></p> -->
+                <!-- <p th:unless="${staffSalary < 20000}">it's not too much</p> -->
+            </td>
         </tr>
     </table>
-    
+    <div th:switch="${staffData.staffName}">
+        <p th:case="nouran">hi nouran</p>
+        <p th:case="*">not found</p>
+
+    </div>
 </body>
 </html>

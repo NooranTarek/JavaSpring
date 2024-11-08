@@ -13,7 +13,7 @@ public class StaffController {
     @GetMapping("/staffDetails")
     public String getStaffDetails(Model model) {
         //A Staff object (myStaff) is created with specific details.
-        Staff myStaff=new Staff("nouran","develoepr",20000);
+        Staff myStaff=new Staff("nouran","develoepr",1000);
         //add an object named staffData to the model
         //This name (staffData) will act as a key to reference the (myStaff) object in the view
         model.addAttribute("staffData", myStaff);
