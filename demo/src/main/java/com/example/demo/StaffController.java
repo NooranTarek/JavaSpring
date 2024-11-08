@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +20,12 @@ public class StaffController {
         //add an object named staffData to the model
         //This name (staffData) will act as a key to reference the (myStaff) object in the view
         model.addAttribute("staffData", myStaff);
+        List <Staff> allStaff= new  ArrayList<Staff>();
+        allStaff.add(new Staff("nouran","develoepr",20000));
+        allStaff.add(new Staff("sara","pharmacist",50));
+        allStaff.add(new Staff("lobna","teacher",1000));
+
+        model.addAttribute("staff", allStaff);
         model.addAttribute("str", "i LOVE java");
         //using View Resolver(Thymeleaf template engine) to know the file of this name
         return "staffDetails";
