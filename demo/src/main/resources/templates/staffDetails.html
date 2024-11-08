@@ -6,6 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hwllo from staff names</h1>
+    <h1>from staff details</h1>
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr>
+            <th style="border: 1px dotted black;">Names</th>
+            <th style="border: 1px dotted black;">Titles</th>
+            <th style="border: 1px dotted black;">Salaries</th>
+        </tr>
+        <tr>
+            <!-- variable expression th:text="${staff.staffName}" -->
+            <td th:text="${staff.staffName}" style="text-align: center;border: 1px dotted black;"></td>
+            <td th:text="${staff.staffJobTitle}" style="text-align: center;border: 1px dotted black;"></td>
+            <td th:text="${staff.staffSalary}" style="text-align: center;order: 1px dotted black;"></td>
+        </tr>
+    </table>
+    
 </body>
 </html>
