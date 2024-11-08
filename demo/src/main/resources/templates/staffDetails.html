@@ -30,6 +30,9 @@
         <p th:case="nouran">hi nouran</p>
         <p th:case="*">not found</p>
 
+
     </div>
+    <p th:text="${#strings.contains(str,'LOVE')}">not found</p>
+
 </body>
 </html>
