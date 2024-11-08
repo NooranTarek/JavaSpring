@@ -13,11 +13,12 @@
             <th style="border: 1px dotted black;">Titles</th>
             <th style="border: 1px dotted black;">Salaries</th>
         </tr>
-        <tr>
+        <!-- selection expression-->
+        <tr th:object="${staffData}">
             <!-- variable expression (Thymeleaf attribute ) th:text="${staff.staffName}" -->
-            <td th:text="${staffData.staffName}" style="text-align: center;border: 1px dotted black;"></td>
-            <td th:text="${staffData.staffJobTitle}" style="text-align: center;border: 1px dotted black;"></td>
-            <td th:text="${staffData.staffSalary}" style="text-align: center;order: 1px dotted black;"></td>
+            <td th:text="*{staffName}" style="text-align: center;border: 1px dotted black;"></td>
+            <td th:text="*{staffJobTitle}" style="text-align: center;border: 1px dotted black;"></td>
+            <td th:text="*{staffSalary}" style="text-align: center;order: 1px dotted black;"></td>
         </tr>
     </table>
     
