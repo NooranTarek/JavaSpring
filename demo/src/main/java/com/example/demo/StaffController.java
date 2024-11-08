@@ -14,6 +14,7 @@ public class StaffController {
     public String getStaffDetails(Model model) {
         Staff staff=new Staff("nouran","develoepr",20000);
         model.addAttribute("staff", staff);
+        //using View Resolver(Thymeleaf template engine) to know the file of this name
         return "staffDetails";
     }
     
