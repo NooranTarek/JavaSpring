@@ -28,7 +28,15 @@ public class StaffController {
         model.addAttribute("staff", allStaff);
         model.addAttribute("str", "i LOVE java");
         //using View Resolver(Thymeleaf template engine) to know the file of this name
-        return "staffDetails";
+         return "staffDetails";
+    }
+    //get method
+    @GetMapping("/staffForm")
+    public String getStaffDataForm(Model model) {
+        Staff myStaff=new Staff("nouran","develoepr",1000);
+        model.addAttribute("staff",myStaff);
+        return "staffForm";
+   
     }
     
 }
