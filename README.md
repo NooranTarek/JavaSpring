@@ -1,6 +1,6 @@
 # Java_and_JavaSpring
 this repo made for java revision and dive into java spring boot
-# Staff Simple CRUD System - Backend
+# Staff Simple CRUD System - Backend (Demo Directory)
 
 ![Java Badge](https://img.shields.io/badge/Java-17.x-blue?style=flat-square)
 ![Spring Boot Badge](https://img.shields.io/badge/Spring%20Boot-2.x-green?style=flat-square)
