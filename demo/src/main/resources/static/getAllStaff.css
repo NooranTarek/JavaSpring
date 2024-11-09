@@ -49,3 +49,29 @@ td {
 tr:hover {
     background-color: #f1f1f1;
 }
+.update-btn {
+    display: inline-block; 
+    padding: 10px 20px; 
+    background-color: #4CAF50; 
+    color: white; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+.delete-btn {
+    display: inline-block; 
+    padding: 10px 20px !important; 
+    border: none !important;
+    background-color: #af4c4c !important; 
+    color: white !important; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    font-size: 17px;
+}

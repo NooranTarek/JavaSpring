@@ -46,16 +46,49 @@ public class StaffController {
     List <Staff> AllStaff =new ArrayList<>();
     //get method
     @GetMapping("/")
-    public String addNewStaff(Model model) {
-        model.addAttribute("addNewStaff",new Staff());
+    public String addNewStaff(Model model,@RequestParam (required = false) String id) {
+        Staff staff= new Staff();
+        int index=getStaffIndex(id);
+        model.addAttribute("addNewStaff",index==-1?staff:AllStaff.get(index));
+        // model.addAttribute("addNewStaff",staff);
+
         return "addNewStaff";
    
     }
+    public int getStaffIndex(String id){
+        for (int i = 0; i < AllStaff.size(); i++) {
+            if(AllStaff.get(i).getId().equals(id)){
+                return i;
+            }
+            }
+        return -1;
+
+    }
+
     @PostMapping("/dataSubmitForm")
     public String dataSubmitForm(Staff staff) {
-        AllStaff.add(staff);
+        int index=getStaffIndex(staff.getId());
+        if(index==-1){
+            AllStaff.add(staff);
+
+        }
+        else {
+            //as if iam updating it
+            AllStaff.set(index,staff);
+
+        }
         return "redirect:/getAllStaff";
     }
+
+//deleteStaffMember
+
+@PostMapping("/deleteStaffMember")
+    public String deleteStaffMember(@RequestParam("id") String id) {
+        int index=getStaffIndex(id);
+        AllStaff.remove(index);
+        return "redirect:/getAllStaff";
+    }
+
     @GetMapping("/getAllStaff")
     public String getMethodName(Model model) {
         model.addAttribute("allStaff", AllStaff);

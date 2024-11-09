@@ -13,11 +13,23 @@
             <th style="border: 1px dotted black;">Names</th>
             <th style="border: 1px dotted black;">Titles</th>
             <th style="border: 1px dotted black;">Salaries</th>
+            <th style="border: 1px dotted black;">Update/Delete</th>
         </tr>
         <tr th:each="oneStaff : ${allStaff}">
             <td th:text="${oneStaff.staffName}" style="text-align: center; border: 1px dotted black;"></td>
             <td th:text="${oneStaff.staffJobTitle}" style="text-align: center; border: 1px dotted black;"></td>
             <td th:text="${oneStaff.staffSalary}" style="text-align: center; border: 1px dotted black;"></td>
+            <td style="text-align: center; border: 1px dotted black;">
+                <div style="display: flex; justify-content: center; gap: 10px;">
+                    <a role="button" th:href="@{/(id=${oneStaff.id})}" class="update-btn">Update</a>
+            
+                    <form method="post" th:action="@{/deleteStaffMember}">
+                        <input type="hidden" name="id" th:value="${oneStaff.id}" />
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </div>
+            </td>
+            
         </tr>
     </table>
 </body>
