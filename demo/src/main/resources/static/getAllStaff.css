@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-image: url("https://img.freepik.com/free-vector/green-gradient-background-gradient-3d-design_343694-3667.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+}
+
+.table-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Light overlay for readability */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px dotted #555;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+}
+
+td {
+    font-size: 16px;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
