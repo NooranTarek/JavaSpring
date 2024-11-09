@@ -4,10 +4,8 @@ public class Staff {
     private String staffName;
     private String staffJobTitle;
     private double staffSalary;
-    public Staff(String staffName, String staffJobTitle, double staffSalary) {
-        this.staffName = staffName;
-        this.staffJobTitle = staffJobTitle;
-        this.staffSalary = staffSalary;
+
+    public Staff() {
     }
     public String getStaffName() {
         return staffName;

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get all staff</title>
+</head>
+<body>
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr>
+            <th style="border: 1px dotted black;">Names</th>
+            <th style="border: 1px dotted black;">Titles</th>
+            <th style="border: 1px dotted black;">Salaries</th>
+        </tr>
+        <tr th:each="oneStaff : ${allStaff}">
+            <td th:text="${oneStaff.staffName}" style="text-align: center; border: 1px dotted black;"></td>
+            <td th:text="${oneStaff.staffJobTitle}" style="text-align: center; border: 1px dotted black;"></td>
+            <td th:text="${oneStaff.staffSalary}" style="text-align: center; border: 1px dotted black;"></td>
+        </tr>
+    </table>
+</body>
+</html>
