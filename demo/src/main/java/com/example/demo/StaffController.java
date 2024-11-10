@@ -5,10 +5,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import jakarta.validation.Valid;
 
 
 
@@ -49,7 +53,7 @@ public class StaffController {
     public String addNewStaff(Model model,@RequestParam (required = false) String id) {
         Staff staff= new Staff();
         int index=getStaffIndex(id);
-        model.addAttribute("addNewStaff",index==-1?staff:AllStaff.get(index));
+        model.addAttribute("addNewStaff",index==Constant.NO_MATCH?staff:AllStaff.get(index));
         // model.addAttribute("addNewStaff",staff);
 
         return "addNewStaff";
@@ -61,23 +65,26 @@ public class StaffController {
                 return i;
             }
             }
-        return -1;
+        return Constant.NO_MATCH;
 
     }
 
     @PostMapping("/dataSubmitForm")
-    public String dataSubmitForm(Staff staff) {
-        int index=getStaffIndex(staff.getId());
-        if(index==-1){
-            AllStaff.add(staff);
-
+    public String dataSubmitForm(@Valid @ModelAttribute("addNewStaff") Staff staff,BindingResult result) {
+        if(result.hasErrors()){
+            return "addNewStaff";
         }
         else {
-            //as if iam updating it
-            AllStaff.set(index,staff);
-
+            int index=getStaffIndex(staff.getId());
+            if(index==Constant.NO_MATCH){
+                AllStaff.add(staff);
+            }
+            else {
+                //as if iam updating it
+                AllStaff.set(index,staff);
+            }
+            return "redirect:/getAllStaff";
         }
-        return "redirect:/getAllStaff";
     }
 
 //deleteStaffMember

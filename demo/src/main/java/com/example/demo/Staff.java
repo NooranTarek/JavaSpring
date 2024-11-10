@@ -2,8 +2,13 @@ package com.example.demo;
 
 import java.util.UUID;
 
+import jakarta.validation.constraints.NotBlank;
+
+
 public class Staff {
+    @NotBlank(message="staff name can not be blank ")
     private String staffName;
+    @NotBlank(message="staff title can not be blank ")
     private String staffJobTitle;
     private double staffSalary;
     private String id;
